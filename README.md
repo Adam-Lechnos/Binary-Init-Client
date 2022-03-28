@@ -15,7 +15,7 @@ Devops pipeline based binaries use devops tested and sanctioned versions of bina
 * [binary-version.json](./binary-versions.json) file inside a seperate repository.
 * Update the vars within the script with the full repo path in the following format:
   * TFvar for Terraform: https://raw.github.com/org/repo/${branch}/pipeline_files/binary_versions
-  * TGvar for Terragrunt: https://raw.github..com/org/repo/${branch}/pipeline_files/binary_versions
+  * TGvar for Terragrunt: https://raw.github.com/org/repo/${branch}/pipeline_files/binary_versions
 
 #### Updating the local Unix PATH
 The binary-init-cache folder is created inside the home folder during execution; all downloaded binaries are stored and maintained here.
