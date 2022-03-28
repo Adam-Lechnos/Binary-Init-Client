@@ -12,7 +12,10 @@ Devops pipeline based binaries use devops tested and sanctioned versions of bina
 * Update Local Unix PATH
 * Github Access Token
 * No other comparable binaries available on the local host
-* [binary-version.json](./binary-versions.json) file
+* [binary-version.json](./binary-versions.json) file inside a seperate repository.
+* Update the vars within the script with the full repo path in the following format:
+  * TFvar for Terraform: https://raw.github.<domain>.com/<org>/<config location>/${branch}/pipeline_files/binary_versions
+  * TGvar for Terragrunt: https://raw.github.<domain>.com/<org>/<config location>/${branch}/pipeline_files/binary_versions
 
 #### Updating the local Unix PATH
 The binary-init-cache folder is created inside the home folder during execution; all downloaded binaries are stored and maintained here.
@@ -30,7 +33,7 @@ i.e., `binary-init-client <github access token> <account_config repo branch>`
 
 ##### Account_Config Repo Branch (Devops usage only)
 ###### :radioactive: When using this argument, you run the risk of updating back-end Terraform state files :radioactive:
-Create a new branch if you intend on testing or using a diffent version of the binaries relative to what is listed inside the Main branch. Set the following file once the new branch is created.
+Create a new branch if you intend on testing or using a diffent version of the binaries relative to what is listed inside the Main branch. Set the following file once the new branch is created: `pipeline_files/binary_versions`.
 
 ##### Options
 
