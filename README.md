@@ -38,7 +38,7 @@ Create a new branch if you intend on testing or using a diffent version of the b
 ##### Options
 
 * Github Access Token - first argument (required)
-* Repo branch for [account_config](https://github.factset.com/market-data-cloud/account_config) - second argument (defaults to Master if ommitted)
+* Repo branch for the `binary-version.json` - second argument (defaults to Master if ommitted)
   * Use if testing different versions of binaries relative to the Master branch by creating a new branch within this repo
 
 ##### Examples
