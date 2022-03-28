@@ -2,7 +2,7 @@
 
 branch=$1
 
-if [[ -z $branch ]]; then branch="master"; else endEcho="Use Terraform with caution and ensure no Prod state files are being upgraded!\nExecute this command without specfying a branch for Prod sanctioned binaries"; fi
+if [[ -z $branch ]]; then branch="main"; else endEcho="Use Terraform with caution and ensure no Prod state files are being upgraded!\nExecute this command without specfying a branch for Prod sanctioned binaries"; fi
 
 #Terraform Binary URL
 TFvar=`curl -s "https://raw.github.<domain>.com/<org>/<config location>/${branch}/pipeline_files/binary_versions" | jq -r '.base_binaries | to_entries | map(select(.key | match("terraform"))) | map(.value) | .[]'`
