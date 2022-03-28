@@ -5,10 +5,10 @@ branch=$1
 if [[ -z $branch ]]; then branch="main"; else endEcho="Use Terraform with caution and ensure no Prod state files are being upgraded!\nExecute this command without specfying a branch for Prod sanctioned binaries"; fi
 
 #Terraform Binary URL
-TFvar=`curl -s "https://raw.github.<domain>.com/<org>/<config location>/${branch}/pipeline_files/binary_versions" | jq -r '.base_binaries | to_entries | map(select(.key | match("terraform"))) | map(.value) | .[]'`
+TFvar=`curl -s "https://raw.github.com/org/repo/${branch}/pipeline_files/binary_versions" | jq -r '.base_binaries | to_entries | map(select(.key | match("terraform"))) | map(.value) | .[]'`
 
 #Terragrunt Binary URL
-TGvar=`curl -s "https://raw.github.<domain>.com/<org>/<config location>/${branch}/pipeline_files/binary_versions" | jq -r '.base_binaries | to_entries | map(select(.key | match("terragrunt"))) | map(.value) | .[]'`
+TGvar=`curl -s "https://raw.github.com/org/repo/${branch}/pipeline_files/binary_versions" | jq -r '.base_binaries | to_entries | map(select(.key | match("terragrunt"))) | map(.value) | .[]'`
 
 wgetTestTF=`wget --server-response --spider "https://releases.hashicorp.com/terraform/${TFvar}/terraform_${TFvar}_linux_amd64.zip" 2>&1 | grep -c '200 OK'`
 wgetTestTG=`wget --server-response --spider "https://github.com/gruntwork-io/terragrunt/releases/download/v${TGvar}/terragrunt_linux_amd64" 2>&1 | grep -c '200 OK'` 2>&1> /dev/null
