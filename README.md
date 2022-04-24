@@ -1,5 +1,5 @@
 # Binary-Init-Client
-The client counterpart to Jenkins Binary Init tool. For DevOps/SRE testing to ensure client binary's match that of the pipeline's.
+The client counterpart to [Jenkins Binary Init](https://github.com/Adam-Lechnos/Jenkins-Binary-Init) tool. For DevOps/SRE testing to ensure client binary's match that of the pipeline's.
 
 #### Description
 Devops pipeline based binaries use devops tested and sanctioned versions of binaries which pipeline function are dependent upon, such as Terraform and Terragrunt. End-users end devops admins are encouraged to leverage this tool to ensure local binaries match the of the versions sanctioned for use in their devops pipeline counterparts. Ensuring consitent versioning between local and pipeline binaries, Terraform state files will remain consistent on the back-end.
